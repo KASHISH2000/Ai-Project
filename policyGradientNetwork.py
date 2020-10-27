@@ -2,7 +2,7 @@ import os.path
 import numpy as np
 import tensorflow as tf
 import tensorflow.compat.v1 as tfc
-tfc.config.run_functions_eagerly(False)
+tfc.compat.v1.disable_eager_execution()
 
 OBSERVATIONS_SIZE = 6400
 
