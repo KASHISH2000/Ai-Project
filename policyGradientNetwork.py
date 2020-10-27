@@ -1,6 +1,5 @@
 import os.path
 import numpy as np
-%tensorflow_version 1.x
 import tensorflow as tf
 import tensorflow.compat.v1 as tfc
 # tfc.compat.v1.disable_eager_execution()
