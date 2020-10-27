@@ -20,9 +20,9 @@ class Network:
         self.sampled_actions = tfc.placeholder(tfc.float32, [None, 1])
         self.advantage = tfc.placeholder(tfc.float32, [None, 1], name='advantage')
         # hidden layers features
-        hidden_layers = tf.layers.dense(self.observations, units=hidden_layer_size, activation=tf.nn.relu, kernel_initializer=tf.contrib.layers.xavier_initializer())
-        self.up_probability = tf.layers.dense( hidden_layers, units=1, activation=tf.sigmoid, kernel_initializer=tf.contrib.layers.xavier_initializer())
-        self.loss = tf.losses.log_loss(labels=self.sampled_actions, predictions=self.up_probability, weights=self.advantage)
+        hidden_layers = tfc.layers.dense(self.observations, units=hidden_layer_size, activation=tf.nn.relu, kernel_initializer=tf.contrib.layers.xavier_initializer())
+        self.up_probability = tfc.layers.dense( hidden_layers, units=1, activation=tf.sigmoid, kernel_initializer=tf.contrib.layers.xavier_initializer())
+        self.loss = tfc.losses.log_loss(labels=self.sampled_actions, predictions=self.up_probability, weights=self.advantage)
         # set optimizer of network
         optimizer = tf.train.AdamOptimizer(self.learning_rate)
         self.train_op = optimizer.minimize(self.loss)
