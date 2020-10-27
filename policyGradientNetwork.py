@@ -1,9 +1,10 @@
 import os.path
 import numpy as np
+%tensorflow_version 1.x
 import tensorflow as tf
 import tensorflow.compat.v1 as tfc
-tfc.compat.v1.disable_eager_execution()
-tfc.disable_v2_behavior()
+# tfc.compat.v1.disable_eager_execution()
+# tfc.disable_v2_behavior()
 OBSERVATIONS_SIZE = 6400
 
 # Aim is to increase the log probability of winning actions , and to decrease the log probability of losing actions.
